@@ -1,0 +1,1000 @@
+  175  curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.sh
+  176  cd go/src/github.com/kevinsorensen523
+  177  cd go
+  178  cd home/go/src/github.com/kevinsorensen523
+  179  dir
+  180  cd ..
+  181  dir
+  182  cd home
+  183  clear
+  184  dir
+  185  cd ho
+  186  dir
+  187  clear
+  188  cd go
+  189  dir
+  190  cd kevin
+  191  dir
+  192  cd ho
+  193  cd go/src
+  194  clear
+  195  dir
+  196  cd github.com/kevinsorensen523
+  197  dir
+  198  curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.sh
+  199  ./install-fabric.sh -h
+  200  Usage: ./install-fabric.sh [-f|--fabric-version <arg>] [-c|--ca-version <arg>] <comp-1> [<comp-2>] ... [<comp-n>] ...
+  201          <comp>: Component to install one or more of  d[ocker]|b[inary]|s[amples]. If none specified, all will be installed
+  202          -f, --fabric-version: FabricVersion (default: '2.5.8')
+  203          -c, --ca-version: Fabric CA Version (default: '1.5.11')
+  204  -h
+  205  ./install-fabric.sh docker samples binary
+  206  dir
+  207  clear
+  208  dir
+  209  ./install-fabric.sh docker samples binary
+  210  dir
+  211  clear
+  212  dir
+  213  git clone https://github.com/hyperledger/fabric-sdk-go.git
+  214  dir
+  215  color a
+  216  clear
+  217  dor
+  218  clear
+  219  dir
+  220  cd fabric-sdk-go
+  221  dir
+  222  make
+  223  make clean
+  224  dir
+  225  make unit-test
+  226  make integration-test
+  227  sudo apt-get install python-dev python3-dev libssl-dev
+  228  sudo apt-get install python-dev python3-dev libssl-devdir
+  229  dir
+  230  cd ..
+  231  dir
+  232  cd fabric-samples
+  233  dir
+  234  cd test-network
+  235  dir
+  236  nano network.sh
+  237  docker ps -a
+  238  ./network.sh createChannel
+  239  Sdocker stop peer0.org1.example.com peer0.org2.example.com orderer.example.com
+  240  docker rm peer0.org1.example.com peer0.org2.example.com orderer.example.com
+  241  docker stop peer0.org1.example.com peer0.org2.example.com orderer.example.com
+  242  docker rm peer0.org1.example.com peer0.org2.example.com orderer.example.com
+  243  \
+  244  docker ps -a
+  245  docker container prune
+  246  docker ps -a
+  247  ./network.sh createChannel
+  248  dir
+  249  ./network.sh createChannel -c channel1
+  250  ./network.sh createChannel -c channel2
+  251  ./network.sh up createChannel
+  252  dir
+  253  ./network.sh deployCC --ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  254  export PATH=${PWD}/../bin:$PATH
+  255  export FABRIC_CFG_PATH=$PWD/../config/
+  256  export CORE_PEER_TLS_ENABLED=true
+  257  export CORE_PEER_LOCALMSPID=Org1MSP
+  258  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  259  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  260  export CORE_PEER_ADDRESS=localhost:7051
+  261  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  262  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  263  export CORE_PEER_TLS_ENABLED=true
+  264  export CORE_PEER_LOCALMSPID=Org1MSP
+  265  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  266  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  267  export CORE_PEER_ADDRESS=localhost:7051
+  268  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  269  peer lifecycle chaincode queryinstalled
+  270  vim
+  271  [200~npx create-expo-app@latest
+  272  ~npx create-expo-app@latest
+  273  node --v
+  274  node -version
+  275  clear
+  276  sudo apt-get install -y curl
+  277  curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
+  278  sudo -E bash nodesource_setup.sh
+  279  sudo -E bash nodesource_setup.sh
+  280  sudo apt-get install -y nodejs
+  281  node -v
+  282  curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
+  283  sudo -E bash nodesource_setup.sh
+  284  sudo apt-get install -y nodejs
+  285  sudo apt-get remove libnode-dev
+  286  sudo apt-get autoremove
+  287  sudo apt-get clean
+  288  sudo apt-get update
+  289  sudo apt-get install -y nodejs
+  290  node -v
+  291  npx create-expo-app@latest
+  292  cd my-app
+  293  code
+  294  code .
+  295  npm run dev
+  296  npm start
+  297  dir
+  298  cd react-native
+  299  dir
+  300  cd my-app
+  301  code .
+  302  npm start
+  303  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+  304  sudo rm -rf /opt/nvim
+  305  sudo tar -C /opt -xzf nvim-linux64.tar.gz
+  306  dir
+  307  cd ..
+  308  cd .
+  309  cd ..
+  310  cd ..
+  311  cd ..
+  312  cd ..
+  313  cd ..
+  314  dir
+  315  cd kevin
+  316  cd downloads
+  317  dir
+  318  cd DOwnloads
+  319  cd Downloads
+  320  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+  321  sudo rm -rf /opt/nvim
+  322  sudo tar -C /opt -xzf nvim-linux64.tar.gz
+  323  export PATH="$PATH:/opt/nvim-linux64/bin"
+  324  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  325  chmod u+x nvim.appimage
+  326  ./nvim.appimage
+  327  mkdir -p /opt/nvim
+  328  mv nvim.appimage /opt/nvim/nvim
+  329  ./nvim.appimage --appimage-extract
+  330  ./squashfs-root/AppRun --version
+  331  # Optional: exposing nvim globally.
+  332  sudo mv squashfs-root /
+  333  sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+  334  nvim
+  335  nvim
+  336  nvim
+  337  dir
+  338  python example.py
+  339  python3 example.py
+  340  clear
+  341  neovim
+  342  cd ..
+  343  nvim
+  344  npm install -g expo-cli
+  345  react-native init MyReactNativeApp
+  346  cd MyReactNativeApp
+  347  react-native init MyReactNativeApp
+  348  npm install -g react-native-cli
+  349  sudo npm install -g expo-cli
+  350  sudo npm install -g react-native-cli
+  351  react-native init MyReactNativeApp
+  352  cd MyReactNativeApp
+  353  dir
+  354  nvim .
+  355  nvim .
+  356  nvim .
+  357  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  358  call plug#begin('~/.local/share/nvim/plugged')
+  359  " Add plugins here, for example:
+  360  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  361  call plug#end()
+  362  call plug#begin('~/.local/share/nvim/plugged')
+  363  " Add plugins here, for example:
+  364  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  365  call plug#end()
+  366  dir
+  367  dir
+  368  cd ..
+  369  call plug#begin('~/.local/share/nvim/plugged')
+  370  " Add plugins here, for example:
+  371  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  372  call plug#end()
+  373  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+  374      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  375  ;
+  376  :1
+  377  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  378  dir
+  379  mkdir -p ~/.config/nvim
+  380  nvim ~/.config/nvim/init.vim
+  381  npx expo install react-native-web react-dom @expo/metro-runtime
+  382  cd MyReactNativeAPp
+  383  cd MyReactNativeApp
+  384  expo start
+  385  dir
+  386  expo start
+  387  sudo npm install -g expo-cli
+  388  expo start
+  389  npx expo start
+  390  npx expo start
+  391  free -m
+  392  sudo apt update
+  393  wget https://github.com/trufflesuite/ganache/releases/download/v7.7.3/ganache-2.5.4-linux-x86_64.AppImage
+  394  wget https://github.com/trufflesuite/ganache/releases/download/v7.7.3/ganache-2.5.4-linux-x86_64.AppImage
+  395  cd ~/Downloads
+  396  wget https://github.com/trufflesuite/ganache/releases/download/v7.7.3/ganache-2.5.4-linux-x86_64.AppImage
+  397  wget https://github.com/trufflesuite/ganache/releases/download/v2.8.1/ganache-2.8.1-linux-x86_64.AppImage
+  398  tar -xzf ganache-7.9.0.tar.gz
+  399  cd ganache-7.9.0
+  400  dir
+  401  npm install
+  402  sudo npm install
+  403  sudo npm install -g ganache
+  404  ganache --version
+  405  nano ~/.local/share/applications/ganache-cli.desktop
+  406  nvim ~/.local/share/applications/ganache-cli.desktop
+  407  chmod +x ~/.local/share/applications/ganache-cli.desktop
+  408  cp ~/.local/share/applications/ganache-cli.desktop ~/Desktop/
+  409  chmod +x ~/Desktop/ganache-cli.desktop
+  410  GANACHE
+  411  ganache
+  412  dir
+  413  nvim ~/.config/nvim/init.vim
+  414  dir
+  415  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  416  dir
+  417  nvim ~/.config/nvim/init.vim
+  418  nvim ~/.config/nvim/init.vim
+  419  nvim
+  420  nvim ~/.config/nvim/init.vim
+  421  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  422  nvim ~/.config/nvim/init.vim
+  423  nvim ~/.config/nvim/init.vim
+  424  nvim ~/.config/nvim/init.vim
+  425  nvim
+  426  nvim ~/.config/nvim/init.vim
+  427  dir
+  428  cd MyReactNativeApp
+  429  dir
+  430  nvim.
+  431  nvim.
+  432  nvim
+  433  nvim .
+  434  expo init MyReactNativeApp
+  435  cd MyReactNativeApp
+  436  expo init MyReactNativeApp
+  437  cd MyReactNativeApp
+  438  nvim .
+  439  expo start
+  440  dir
+  441  cd ..
+  442  cd ..
+  443  dir
+  444  cd ..
+  445  cd ..
+  446  cd ..
+  447  cd ..
+  448  cd ..
+  449  cd MyReactNativeAppp
+  450  cd MyReactNativeApp
+  451  expo init MyReactNativeApp
+  452  cd MyReactNativeApp
+  453  dir
+  454  nvim .
+  455  npm install react-native-web @expo/webpack-config
+  456  npm install react-native-web @expo/webpack-config --legacy-peer-deps
+  457  npx expo start --web
+  458  npx expo install react-dom
+  459  npx expo install react-dom --legacy-peer-deps
+  460  npx expo install react-dom -- --legacy-peer-deps
+  461  npx expo start --web
+  462  npx expo start --web
+  463  npx expo start
+  464  npm install --legacy-peer-deps
+  465  npx expo start
+  466  cd MyReactNativeApp
+  467  node start -web
+  468  node start --web
+  469  clear
+  470  npm run web
+  471  clear
+  472  node start
+  473  dir
+  474  clear
+  475  npm install
+  476  cler
+  477  clear
+  478  expo start
+  479  clear
+  480  expo start --web
+  481  clear
+  482  nvim
+  483  nvim .
+  484  cd MyReactNativeApp
+  485  nvim .
+  486  nvim .
+  487  nvim .
+  488  nvim .
+  489  :q
+  490  clear
+  491  cd MyReactNativeApp
+  492  nvim .
+  493  cd employee-evaluation-app
+  494  npm run dev
+  495  clear
+  496  npm run web
+  497  : command not found
+  498  bash: /home/kevin/.bashrc: line 6: syntax error near unexpected token `$'in\r''
+  499  'ash: /home/kevin/.bashrc: line 6: `case $- in
+  500  kevin@kevin-ZenBook-UX325UA-UM325UA:~$ 
+  501  nano ~/.bashrc
+  502  sudo apt-get install dos2unix
+  503  dos2unix ~/.bashrc
+  504  source ~/.bashrc
+  505  clear
+  506  nvim
+  507  sudo apt-get remove nodejs
+  508  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  509  source ~/.bashrc
+  510  node -v
+  511  nvm install 20
+  512  node -v
+  513  npm uninstall -g expo-cli
+  514  npm cache clean --force
+  515  npm install -g expo-cli
+  516  nvim
+  517  ~/.config/nvim/init.vim
+  518  nvim ~/.config/nvim/init.vim
+  519  :source %
+  520  nvim
+  521  :source %
+  522  nvim ~/.config/nvim/init.vim
+  523  cd employee-evaluation-app
+  524  expo install @react-navigation/native react-native-screens react-native-safe-area-context
+  525  expo install @react-navigation/stack
+  526  npm init -y
+  527  npm install express mongoose cors dotenv
+  528  git config --global user.name "kevinsorensen523"
+  529  git config --global user.email "kevinsorensen523@gmail.com"
+  530  git add .
+  531  node_modules/
+  532  npm-debug.log
+  533  .env
+  534  dir
+  535  git add.
+  536  git add .
+  537  node_modules/
+  538  git add .
+  539  ls
+  540  git commit -m "Describe your changes here"
+  541  git push origin main
+  542  git commit -m "Describe your changes here"
+  543  git add .
+  544  git commit -m "Describe your changes here"
+  545  ls
+  546  git push origin main
+  547  git branch
+  548  git add .
+  549  git commit -m "Initial commit"
+  550  git branch -m master main
+  551  git add .
+  552  git branch
+  553  git push origin main
+  554  git branch -m master main
+  555  git add .
+  556  git commit -m "Initial commit"
+  557  git push origin main
+  558  git push main
+  559  git remote -v
+  560  git remote add origin https://github.com/kevinsorensen523/EmployeeEvaluationApp.git
+  561  git remote set-url origin https://github.com/username/EmployeeEvaluationApp.git
+  562  git push -u origin main
+  563  git remote set-url origin https://github.com/kevinsorensen523/EmployeeEvaluationApp.git
+  564  git push -u origin main
+  565  dir
+  566  cd ..
+  567  dir
+  568  cd Github
+  569  dir
+  570  di
+  571  rclear
+  572  clear
+  573  dir
+  574  cd EmloyeeEvaluationApp
+  575  cd EmployeeEvaluationApp
+  576  nvim .
+  577  cd EmployeeEvaluationApp
+  578  nvim .
+  579  cd Github
+  580  dor
+  581  dir
+  582  cd EmployeeEvaluationApp
+  583  nvim .
+  584  dir
+  585  nvim .
+  586  cd GIthub
+  587  dir
+  588  cd Github
+  589  dir
+  590  cd EmployeeEvaluationApp
+  591  nvim .
+  592  nvim
+  593  nvim ~/.config/nvim/init.lua
+  594  nvim ~/.config/nvim/init.vim
+  595  sudo apt-get install xclip
+  596  sudo apt-get install xsel
+  597  nvim --version | grep clipboard
+  598  sudo add-apt-repository ppa:neovim-ppa/stable
+  599  sudo apt-get update
+  600  sudo apt-get install neovim
+  601  nvim ~/.config/nvim/init.vim
+  602  cat ~/.config/nvim/init.vim
+  603  nvim ~/.config/nvim/init.vim
+  604  nvim
+  605  nvim ~/.config/nvim/init.vim
+  606  sudo add-apt-repository ppa:neovim-ppa/stable
+  607  sudo apt-get update
+  608  sudo apt-get install neovim
+  609  nvim --version
+  610  nvim ~/.config/nvim/init.vim
+  611  dir
+  612  sudo apt remove neovim
+  613  sudo add-apt-repository ppa:neovim-ppa/stable
+  614  sudo apt-get update
+  615  sudo apt-get install neovim
+  616  nvim --version
+  617  sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+  618  git clone https://github.com/neovim/neovim.git
+  619  cd neovim
+  620  git checkout stable
+  621  make CMAKE_BUILD_TYPE=Release
+  622  sudo make install
+  623  nvim --version
+  624  nvim ~/.config/nvim/init.vim
+  625  nvim --version
+  626  sudo apt remove neovim
+  627  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+  628  chmod u+x nvim.appimage
+  629  ./nvim.appimage
+  630  cd ..
+  631  ./nvim.appimage
+  632  chmod u+x nvim.appimage
+  633  ./nvim.appimage
+  634  sudo apt-get install fuse libfuse2
+  635  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+  636  chmod u+x nvim.appimage
+  637  ./nvim.appimage
+  638  ./nvim.appimage --appimage-extract
+  639  ./squashfs-root/AppRun
+  640  mv squashfs-root /opt/nvim
+  641  sudo ln -s /opt/nvim/AppRun /usr/local/bin/nvim
+  642  nvim --version
+  643  nvim .
+  644  ./nvim.appimage --appimage-extract
+  645  ./nvim.appimage
+  646  nvim --version
+  647  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+  648  chmod u+x nvim.appimage
+  649  ./nvim.appimage
+  650  sudo mv nvim.appimage /usr/local/bin/nvim
+  651  nvim --version
+  652  export PATH="/usr/local/bin:$PATH"
+  653  source ~/.bashrc  # or source ~/.zshrc if using zsh
+  654  nvim --version
+  655  nvim .
+  656  nvim ~/.config/nvim/init.vim
+  657  rm -rf ~/.local/share/nvim/plugged/nvim-treesitter
+  658  nvim ~/.config/nvim/init.vim
+  659  rm -rf ~/.local/share/nvim/plugged/nvim-treesitter
+  660  nvim ~/.config/nvim/init.vim
+  661  rm -rf ~/.local/share/nvim/plugged/nvim-treesitter
+  662  nvim ~/.config/nvim/init.vim
+  663  nvim test.html
+  664  nvim minimal.vim
+  665  nvim -u minimal.vim
+  666  cp ~/.config/nvim/init.vim ~/.config/nvim/init.vim.bak
+  667  nvim ~/.config/nvim/init.vim
+  668  cp ~/.config/nvim/init.vim ~/.config/nvim/init.vim.bak
+  669  nvim ~/.config/nvim/init.vim
+  670  nvim
+  671  nvim ~/.config/nvim/init.vim
+  672  nvim
+  673  cd GIthub
+  674  cd Github
+  675  dir
+  676  cd EmployeeEvaluationApp
+  677  dir
+  678  npm install axios
+  679  cd backend
+  680  node addUser.js
+  681  cd Githuv
+  682  cd Github
+  683  dir
+  684  cd EmployeeEvaluationApp
+  685  npm install express sqlite3 body-parser cors
+  686  curl http://localhost:3000/users/1
+  687  cd Github
+  688  dir
+  689  cd EmployeeEvaluationApp
+  690  nvim .
+  691  dir
+  692  mkdir backend
+  693  cd backend
+  694  npm init -y
+  695  npm install express sqlite3 body-parse
+  696  npm install express sqlite3 body-parser
+  697  npm install axios
+  698  node server.js
+  699  cd Github
+  700  dir
+  701  cd EmployeeEvaluationApp
+  702  nvim .
+  703  sudo apt-get install tmux
+  704  nvim ~/.config/nvim/init.vim
+  705  tmux source-file ~/.tmux.conf
+  706  tmux
+  707  clear
+  708  cd MyReactNativeApp
+  709  expo start --web
+  710  node -v
+  711  npm -v
+  712  expo start --web
+  713  npm install
+  714  expo start --web
+  715  node -v
+  716  use 20
+  717  node use 20
+  718  nvm use 20
+  719  node -v
+  720  nvm alias default 20
+  721  expo start --web
+  722  npm uninstall -g expo-cli
+  723  npm install -g expo
+  724  npm install -g expo-cli
+  725  cd ..
+  726  npm install -g expo-cli
+  727  cd home
+  728  cd ..
+  729  dir
+  730  npm install -g expo-cli
+  731  npx create-expo-app@latest
+  732  cd employee-evaluation-app
+  733  nvim .
+  734  cd ..
+  735  dir
+  736  cd Github
+  737  dir
+  738  cd EmployeeEvaluationAPp
+  739  cd EmployeeEvaluationApp
+  740  npm install
+  741  dir
+  742  npm run web
+  743  mkdir ~/neovim-config
+  744  cd ~/neovim-config
+  745  cp ~/.config/nvim/init.vim .
+  746  dir
+  747  git init
+  748  git add init.vim
+  749  git commit -m "Add initial Neovim configuration"
+  750  git remote add origin https://github.com/kevinsorensen523/vimrc/git
+  751  git remote add origin https://github.com/kevinsorensen523/vimrc.git
+  752  git branch -M main
+  753  git push -u origin main
+  754  git remote add origin https://github.com/kevinsorensen523/vimrc.git
+  755  git remote set-url origin https://github.com/kevinsorensen523/vimrc.git
+  756  git remote -v
+  757  git branch -M main
+  758  git push -u origin main
+  759  git remote set-url origin https://github.com/kevinsorensen523/vimrc.git
+  760  remote -v
+  761  git remote -v
+  762  git branch -M main
+  763  git push -u origin main
+  764  tmux split-window -h  # Horizontal split
+  765  tmux split-window -v  # Vertical split
+  766  tmux source-file ~/.tmux.conf
+  767  nvim ~/.tmux.conf
+  768  nvim
+  769  nvim ~/.config/nvim/init.vim
+  770  nvim
+  771  nvim ~./tmux.conf
+  772  nvim ~/.tmux.conf
+  773  tmux source-file ~/.tmux.conf
+  774  tmux
+  775  cd neovin-config
+  776  dir
+  777  cd neovim-config
+  778  dir
+  779  git remote set-url origin https://github.com/kevinsorensen523/vimrc.git
+  780  git remote -v
+  781  git commit -m "Add initial Neovim configuration"
+  782  cp ~/.config/nvim/init.lua .  # For init.lua
+  783  cp ~/.config/nvim/init.vim .  # For init.vim
+  784  git add init.vim  # For init.vim
+  785  git commit -m "Add initial Neovim configuration"
+  786  git status
+  787  git add init.vim
+  788  git commit -m "Add initial Neovim configuration"
+  789  git status
+  790  ls ~/neovim-config
+  791  nvim init.vim
+  792  git status
+  793  git push -u origin main
+  794  git config --global credential.helper store
+  795  git push -u origin main
+  796  clear
+  797  git push -u origin main
+  798  git pull origin main
+  799  git commit -m "Resolve merge conflicts"
+  800  git push -u origin main
+  801  git pull origin main
+  802  git pull origin main --no-rebase
+  803  git config pull.rebase false
+  804  git pull origin main --rebase
+  805  git config pull.rebase true
+  806  git pull origin main --ff-only
+  807  git pull origin main --no-rebase
+  808  git commit -m "Resolve merge conflicts"
+  809  git push -u origin main
+  810  cd ..
+  811  clear
+  812  dir
+  813  cd Github
+  814  dir
+  815  cd Employee EvaluationApp
+  816  cd EmployeeEvaluationApp
+  817  tmux
+  818  sudo apt update
+  819  sudo apt install openjdk-21-jdk
+  820  java --version
+  821  cd Downloadas
+  822  cd Downloads
+  823  dir
+  824  tar -xvzf android-studio-2023.3.1.19-linux.tar.gz
+  825  sudo mv android-studio /opt/
+  826  cd /opt/android-studio/bin
+  827  ./studio.sh
+  828  cd ..
+  829  java --version
+  830  tar -xvzf android-studio-2023.3.1.19-linux.tar.gz
+  831  cd /opt/android-studio/bin
+  832  ./studio.sh
+  833  nano ~/.bashrc
+  834  source ~/.bashrc
+  835  java -version
+  836  nano ~/.bashrc
+  837  source ~/.bashrc
+  838  java -version
+  839  ./studio.sh
+  840  sudo nano /opt/android-studio/bin/studio.sh
+  841  ./studio.sh
+  842  sudo nano /opt/android-studio/bin/studio.sh
+  843  ./studio.sh
+  844  sudo nano /opt/android-studio/bin/studio.sh
+  845  ./studio.sh
+  846  cd /opt/android-studio/bin
+  847  ./studio.sh
+  848  sudo update-alternatives --config java
+  849  export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+  850  export PATH=$JAVA_HOME/bin:$PATH
+  851  export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+  852  export PATH=$JAVA_HOME/bin:$PATH
+  853  java -version
+  854  cd /opt/android-studio/bin
+  855  ./studio.sh
+  856  sudo chown -R $(whoami) /opt/android-studio
+  857  sudo chmod -R 755 /opt/android-studio
+  858  sudo rm -rf /opt/android-studio
+  859  cd Downloads
+  860  cd ..
+  861  cd Downloads
+  862  cd downloads
+  863  dir
+  864  cd home
+  865  cd Downloads
+  866  dir
+  867  cd kevin
+  868  cd Downloads
+  869  dir
+  870  tar -xvzf android-studio-2023.3.1.19-linux.tar.gz
+  871  df -h
+  872  du -h --max-depth=1 /home/$(whoami) | sort -hr
+  873  rm -rf ~/Downloads/old-large-file.zip
+  874  sudo apt-get clean
+  875  sudo apt-get autoremove
+  876  tar -xvzf android-studio-2023.3.1.19-linux.tar.gz
+  877  df -h
+  878  sudo du -h / --max-depth=1 | sort -hr | head -n 10
+  879  sudo mv /opt /path/to/other/partition/opt
+  880  rmf -c
+  881  df -g
+  882  df -h
+  883  ip a
+  884  vim
+  885  nvim
+  886  nano /etc/netplan/00-installer.config.yaml
+  887  nano /etc/netplan/00-installer-config.yaml
+  888  sudo apt-get update
+  889  sudo apt install -reinstall gnome-control-center
+  890  sudo apt install --reinstall gnome-control-center
+  891  gnome-control-center displa
+  892  gnome-control-center display
+  893  sudo apt install gnome-control-center
+  894  clear
+  895  sudo apt install gnome-control-center
+  896  gnome-control-center
+  897  cd
+  898  nano /etc/netplan/00-installer-config.yaml
+  899  cd Desktop
+  900  sudo lhsw -class network
+  901  sudo lshw -class network
+  902  cd /etc/pm/sleep.d
+  903  ls
+  904  sudo touch config
+  905  ls
+  906  SUSPEND MODULES="Wireless 8265 / 8275"
+  907  config
+  908  ls
+  909  sudo gedit config
+  910  clear
+  911  echo "options Wireless 8265 / 8275 fwlps=N" | sudo tee /etc/modprobe.d/Wireless 8265 / 8275.conf
+  912  sudo lshw -class network
+  913  sudo at remove broadcom-sta-dkms bcmwl-kernel-source
+  914  sudo apt remove broadcom-sta-dkms bcmwl-kernel-source
+  915  sudo apt install firmware-b43-installer
+  916  lspci | grep Network
+  917  sudo apt-get update
+  918  sudo apt-get upgrade
+  919  sudo apt-get install --reinstall bcmwl-kernel-source
+  920  [200~sudo apt-get install linux-headers-$(uname -r) build-essential git
+  921  ~
+  922  sudo apt-get install linux-headers-$(kevin -r) build-essential git
+  923  $ sudo apt install git
+  924  sudo apt install git
+  925  git clone https://github.com/lwfinger/rtw88.git
+  926  make
+  927  cd rwt88/
+  928  dir
+  929  cd rwt88
+  930  cd rtw88
+  931  make
+  932  sudo modprobe -r rtl8723de
+  933  sudo modprobe rtl8723dehould
+  934  dir
+  935  cd MyReactNativeApp
+  936  cd MyReactNativeApps
+  937  tmux
+  938  tmux split-window 0v
+  939  tmux split-window -v
+  940  tmux
+  941  nano ~/.tmux.conf
+  942  cd ../frontend
+  943  npx expo start
+  944  npx expo start -c
+  945  rm -rf node_modules package-lock.json
+  946  npm install
+  947  npx expo start
+  948  npm uninstall -g expo-cli
+  949  npx expo init TaskMonitoringApp
+  950  A\npx create-expo-app TaskMonitoringApp
+  951  cd TaskMonitoringApp
+  952  npx create-expo-app TaskMonitoringApp
+  953  cd TaskMonitoringApp
+  954  mkdir -p backend/src frontend/src/{components,screens}
+  955  cd ..
+  956  cd Github
+  957  dir
+  958  cd TaskMonitoringApp
+  959  mkdir -p backend/src frontend/src/{components,screens}
+  960  cd backend
+  961  npm init -y
+  962  npm install express mongoose cors
+  963  npm install --save-dev typescript ts-node @types/node @types/express @types/mongoose @types/cors
+  964  cd ../frontend
+  965  npm install axios @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context
+  966  npm install --save-dev @types/axios
+  967  cd ../frontend
+  968  npm install axios @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context
+  969  npm install --save-dev @types/axios
+  970  dir
+  971  cd ../backend
+  972  npx ts-node src/server.ts
+  973  cd Github
+  974  dir
+  975  cd TaskMonitoringApp
+  976  tmux
+  977  sudo nano /usr/share/applications/android-studio.desktop
+  978  sudo nano /usr/share/applications/remix-ide.desktop
+  979  sudo mysql -u root
+  980  523523523
+  981  sudo mysql -u root
+  982  sudo mysql -u root
+  983  sudo mysqladmin shutdown
+  984  sudo mysql -u root
+  985  sudo systemctl status mysql
+  986  sudo journalctl -xe
+  987  sudo cat /var/log/mysql/error.log
+  988  sudo systemctl restart mysql
+  989  sudo mkdir -p /var/run/mysqld
+  990  sudo chown mysql:mysql /var/run/mysqld
+  991  sudo apt-get remove --purge mysql-server mysql-client mysql-common
+  992  sudo apt-get autoremove
+  993  sudo apt-get autoclean
+  994  sudo apt-get install mysql-server
+  995  sudo mysqld_safe --skip-grant-tables &
+  996  sudo systemctl start mysql
+  997  sudo mysql -u root -p
+  998  sudo systemctl stop mysql
+  999  sudo mysqld_safe --skip-grant-tables &
+ 1000  df -h
+ 1001  du -sh .
+ 1002  sudo apt update
+ 1003  sudo apt install apache2
+ 1004  sudo apt install mysql-server
+ 1005  sudo mysql_secure_installation
+ 1006  sudo apt install php libapache2-mod-php php-mysql
+ 1007  sudo systemctl restart apache2
+ 1008  sudo nano /var/www/html/info.php
+ 1009  sudo apt install phpmyadmin
+ 1010  sudo apt install docker.io
+ 1011  sudo systemctl start docker
+ 1012  sudo systemctl enable docker
+ 1013  ls /usr/share/phpmyadmin
+ 1014  sudo nano /etc/apache2/conf-available/phpmyadmin.conf
+ 1015  sudo a2enconf phpmyadmin
+ 1016  sudo systemctl reload apache2
+ 1017  sudo mysql -u root -p
+ 1018  sudo nano /etc/phpmyadmin/config-db.php
+ 1019  sudo systemctl restart apache2
+ 1020  sudo systemctl stop mysql
+ 1021  sudo mysqld_safe --skip-grant-tables &
+ 1022  sudo mysql -u root
+ 1023  sudo mysqld_safe --skip-grant-tables &
+ 1024  sudo mysql -u root
+ 1025  sudo mysqladmin shutdown
+ 1026  sudo mysql -u root
+ 1027  sudo nano /etc/mysql/my.cnf
+ 1028  sudo mkdir -p /var/run/mysqld
+ 1029  sudo chown mysql:mysql /var/run/mysqld
+ 1030  sudo systemctl start mysql
+ 1031  cd Downloads
+ 1032  dir
+ 1033  tar -xvzf android-studio-2023.3.1.19-linux.tar.gz
+ 1034  sudo mv android-studio /opt/
+ 1035  /opt/android-studio/bin/studio.sh
+ 1036  clear
+ 1037  sudo apt-get remove --purge mysql-server mysql-client mysql-common
+ 1038  sudo apt-get autoremove
+ 1039  sudo apt-get autoclean
+ 1040  sudo apt-get install mysql-server
+ 1041  sudo mysqld_safe --skip-grant-tables &
+ 1042  sudo mysql -u root
+ 1043  sudo mysqld_safe --skip-grant-tables &
+ 1044  sudo apt-get remove --purge mysql-server mysql-client mysql-common
+ 1045  sudo apt-get autoremove
+ 1046  sudo apt-get autoclean
+ 1047  sudo apt-get install mysql-server
+ 1048  sudo mysqld_safe --skip-grant-tables &
+ 1049  sudo mysql -u root
+ 1050  sudo systemctl stop mysql
+ 1051  sudo apt-get remove --purge mysql-server mysql-client mysql-common
+ 1052  sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql
+ 1053  sudo apt-get autoremove
+ 1054  sudo apt-get autoclean
+ 1055  sudo apt-get remove --purge phpmyadmin
+ 1056  sudo rm -rf /etc/phpmyadmin /usr/share/phpmyadmin
+ 1057  sudo systemctl stop mysql
+ 1058  sudo apt-get remove --purge mysql-server mysql-client mysql-common
+ 1059  sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql
+ 1060  sudo apt-get autoremove
+ 1061  sudo apt-get autoclean
+ 1062  sudo systemctl restart apache2
+ 1063  sudo apt-get update
+ 1064  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+ 1065  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+ 1066  sudo rm /etc/apt/sources.list.d/shiftkey-desktop.list
+ 1067  sudo apt-get remove --purge mysql-server mysql-client mysql-common
+ 1068  sudo apt-mark showhold
+ 1069  sudo apt-get remove --purge mysql-server mysql-common
+ 1070  sudo apt-get install -f
+ 1071  sudo apt-get remove --purge mysql-server mysql-common
+ 1072  sudo apt-get autoremove
+ 1073  sudo apt-get autoclean
+ 1074  sudo apt-get clean
+ 1075  sudo apt-get update
+ 1076  sudo apt-get remove --purge dbconfig-mysql
+ 1077  sudo apt-get autoremove
+ 1078  sudo apt-get autoclean
+ 1079  sudo apt-get install mysql-server
+ 1080  sudo mysql_secure_installation
+ 1081  sudo systemctl status mysql
+ 1082  sudo mysql -u root -p
+ 1083  sudo apt-get install phpmyadmin
+ 1084  sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+ 1085  sudo systemctl status mysql
+ 1086  sudo mysql -u root -p
+ 1087  sudo systemctl stop mysql
+ 1088  sudo mysqld_safe --skip-grant-tables &
+ 1089  sudo mysql -u root
+ 1090  sudo systemctl status mysql
+ 1091  sudo systemctl start mysql
+ 1092  sudo cat /var/log/mysql/error.log
+ 1093  sudo journalctl -xeu mysql.service
+ 1094  sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+ 1095  sudo mkdir -p /var/run/mysqld
+ 1096  sudo chown mysql:mysql /var/run/mysqld
+ 1097  sudo chmod 755 /var/run/mysqld
+ 1098  sudo systemctl stop mysql
+ 1099  sudo apt-get remove --purge mysql-server mysql-client mysql-common
+ 1100  sudo apt-get autoremove
+ 1101  sudo apt-get autoclean
+ 1102  [200~sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql
+ 1103  ~
+ 1104  sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql
+ 1105  sudo apt-get update
+ 1106  sudo apt-get install mysql-server
+ 1107  sudo systemctl status mysql
+ 1108  sudo mysql -u root -p
+ 1109  sudo nano /etc/phpmyadmin/config-db.php
+ 1110  sudo systemctl restart apache2
+ 1111  sudo mysql -u root -p
+ 1112  sudo nano /etc/phpmyadmin/config-db.php
+ 1113  sudo apt-get install phpmyadmin
+ 1114  ls /etc/phpmyadmin
+ 1115  sudo apt-get update
+ 1116  sudo apt-get install phpmyadmin php-mbstring php-gettext
+ 1117  sudo phpenmod mbstring
+ 1118  sudo phpenmod gettext
+ 1119  sudo systemctl restart apache2
+ 1120  ls /etc/phpmyadmin
+ 1121  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+ 1122  sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+ 1123  sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+ 1124  sudo apt update
+ 1125  sudo apt install apt-transport-https
+ 1126  sudo apt update
+ 1127  sudo apt upgrade code
+ 1128  code --version
+ 1129  sudo snap refresh
+ 1130  dir
+ 1131  clear
+ 1132  sudo apt update
+ 1133  sudo apt-get update
+ 1134  [200~  sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+ 1135  sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+ 1136  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ 1137  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+ 1138  sudo apt-get update
+ 1139  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+ 1140  sudo usermod -aG docker $USER
+ 1141  [200~sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose~
+ 1142  [200~wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz
+ 1143  sudo tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
+ 1144  wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz
+ 1145  sudo tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
+ 1146  echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
+ 1147  source ~/.bashrc
+ 1148  node -v
+ 1149  pyton 0v
+ 1150  python -v
+ 1151  sudo apt-get install -y python
+ 1152  python -v
+ 1153  python3 -v
+ 1154  sudo apt-get install -y python3-pip
+ 1155  [200~  curl -sSL https://bit.ly/2ysbOFE | bash -s~
+ 1156  clear
+ 1157  [200~  curl -sSL https://bit.ly/2ysbOFE | bash -s~
+ 1158  clear
+ 1159  docker --v
+ 1160  docker --version
+ 1161  docker compose --version
+ 1162  docker rm -f $(docker ps -aq)
+ 1163  docker volume prune -f
+ 1164  docker logs <container_id>
+ 1165  docker logs b30243c0f334_peer0.org1.example.com
+ 1166  docker logs e8c600cc2949_peer0.org2.example.com
+ 1167  docker logs 3af99a1f43f3_orderer.example.com
+ 1168  ./network.sh down
+ 1169  ./network.sh up
+ 1170  ./network.sh createChannel -c mychannel
+ 1171  ./network.sh down
+ 1172  ./network.sh up
+ 1173  ./network.sh createChannel -c mychannel
+ 1174  history > command_history.txt
