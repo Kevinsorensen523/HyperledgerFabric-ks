@@ -68,5 +68,75 @@ This script will download the necessary binaries and Docker images.
   - Deploy a Chaincode
     ```bash
       ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
-    ``` 
+    ```
+    
+8. Interact with the Network
+After setting up the network and deploying chaincode, you can interact with the network using the Hyperledger Fabric CLI or SDKs.
+
+9. Shut Down the Network
+```bash
+  ./network.sh down
+ ```
+
+## Additional Resources
+- Hyperledger Fabric Documentation: https://hyperledger-fabric.readthedocs.io/en/release-2.5/
+- Fabric Samples GitHub Repository: https://github.com/hyperledger/fabric-samples
+
+## Step-by-Step Troubleshooting Guide
+1. Check Docker and Docker-Compose Versions
+```bash
+  docker --version
+  docker-compose --version
+```
+You should have Docker version 20.10.7 or later and Docker Compose version 1.29.2 or later.
+
+2. Remove Existing Container
+```bash
+  docker rm -f $(docker ps -aq)
+  docker volume prune -f
+```
+If you have any old or exited containers, remove them to avoid conflicts.
+
+3. Check Docker Logs
+```bash
+  docker logs <container_id>
+```
+Inspect the logs of the failed containers to get more details about why they are not starting.
+For Example :
+```bash
+  docker logs b30243c0f334_peer0.org1.example.com
+  docker logs e8c600cc2949_peer0.org2.example.com
+  docker logs 3af99a1f43f3_orderer.example.com
+```
+
+4. Check Docker Configuration: Ensure Docker is configured correctly and has sufficient resources (CPU, memory).
+
+5. Rebuild Network: Clean up and rebuild the network.
+```bash
+  ./network.sh down
+  ./network.sh up
+  ./network.sh createChannel -c mychannel
+```
+
+## Rebuild The Network
+1. Bring Down the Network
+```bash
+  ./network.sh down
+```
+
+2. Bring Up the Network
+```bash
+  ./network.sh up
+```
+
+3. Create the Channel
+```bash
+  ./network.sh createChannel -c mychannel
+```
+
+### Additional Tips
+- Increase Docker Resources: If running on a virtual machine or a system with limited resources, increase the CPU and memory allocation for Docker.
+- Check Network Configuration: Ensure there are no port conflicts and the Docker network is correctly configured.
+- Use Specific Versions: Sometimes, using specific versions of the Hyperledger Fabric Docker images can help. Modify the FABRIC_VERSION and THIRDPARTY_VERSION in the .env file if needed.
+ 
 
