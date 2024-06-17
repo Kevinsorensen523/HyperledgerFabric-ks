@@ -76,7 +76,12 @@ After setting up the network and deploying chaincode, you can interact with the 
 9. Shut Down the Network
 ```bash
   ./network.sh down
- ```
+```
+
+10. Save Command History
+```bash
+  history > command_history.txt
+```
 
 ## Additional Resources
 - Hyperledger Fabric Documentation: https://hyperledger-fabric.readthedocs.io/en/release-2.5/
